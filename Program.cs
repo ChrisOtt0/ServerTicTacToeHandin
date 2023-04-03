@@ -1,3 +1,5 @@
+using ServerTicTacToeHandin.Hubs;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -28,6 +30,6 @@ app.UseAuthorization();
 app.MapRazorPages();
 
 // Custom: Configure SignalR Endpoints
-
+app.MapHub<GameHub>("/game");
 
 app.Run();
