@@ -1,4 +1,5 @@
-using ServerTicTacToeHandin.Hubs;
+﻿using ServerTicTacToeHandin.Hubs;
+using ServerTicTacToeHandin.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,8 @@ builder.Services.AddRazorPages();
 
 // Custom: Enable SignalR
 builder.Services.AddSignalR();
+
+builder.Services.AddSingleton<GameService>();
 
 var app = builder.Build();
 
