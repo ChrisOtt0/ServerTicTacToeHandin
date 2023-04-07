@@ -95,7 +95,7 @@ namespace ServerTicTacToeHandin.Models
 
         private void CheckStatus()
         {
-            if (EnoughToWin())
+            if (EnoughToWin() && Status == Status.On)
             {
                 CheckRows();
                 CheckCols();

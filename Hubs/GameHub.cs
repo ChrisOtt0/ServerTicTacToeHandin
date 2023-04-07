@@ -32,6 +32,8 @@ namespace ServerTicTacToeHandin.Hubs
         {
             _gameService.GameSessions[groupName].Players[1].Name = playerName;
             _gameService.GameSessions[groupName].CalcIsTurn();
+
+            await Groups.AddToGroupAsync(Context.ConnectionId, groupName);
             await Clients.Group(groupName).SendAsync("UpdateGame", JsonConvert.SerializeObject(_gameService.GameSessions[groupName]));
         }
 
